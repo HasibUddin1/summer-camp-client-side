@@ -35,7 +35,7 @@ const NavigationBar = () => {
     </>
 
     return (
-        <div className="navbar bg-slate-800 justify-between py-2 lg:px-44">
+        <div className="navbar bg-slate-800 justify-between py-2 lg:px-44 relative z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">

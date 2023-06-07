@@ -1,20 +1,41 @@
 import { Link } from 'react-router-dom';
 import registerImage from '../../assets/images/images/login-form-image.jpg'
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
 
     const { register, handleSubmit, } = useForm();
 
+    const [error, setError] = useState('')
+
     const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const onSubmit = data => {
         console.log(data)
-        if (data.password !== data.confirmPassword) {
+        
+        if(data.password.length < 6){
+            setError('Password must be 6 characters long')
+            return 
+        }
+        
+        if(!/(?=.*\W)/.test(data.password)){
+            setError('Password must contain one special character')
             return
         }
+
+        if(!/(?=.*[A-Z])/.test(data.password)){
+            setError('Password must contain one capital letter')
+            return
+        }
+        
+        if (data.password !== data.confirmPassword) {
+            setError('Password did not match')
+            return
+        }
+        
+        setError('')
         createUser(data.email, data.password)
             .then(result => {
                 const registeredUser = result.user
@@ -83,6 +104,7 @@ const Register = () => {
                                         <input className='btn btn-primary bg-slate-800 border-none' type="submit" value="Register" />
                                     </div>
                                 </form>
+                                {error && <p className='text-red-600 font-bold'>Error: {error}</p>}
                             </div>
                         </div>
                     </div>

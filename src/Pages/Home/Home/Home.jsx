@@ -9,6 +9,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
+            {/* TODO: Ekta extra section korte hobe */}
         </div>
     );
 };

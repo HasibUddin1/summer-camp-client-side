@@ -6,7 +6,7 @@ const SingleClass = ({ singleClass }) => {
     const { name, image, students } = singleClass
 
     return (
-        <div className="card w-96 bg-slate-200 shadow-xl rounded-xl">
+        <div className="card w-96 bg-slate-800 shadow-xl rounded-xl text-white">
             <div className="flex flex-col justify-between">
                 <div>
                     <figure><img className="mx-auto rounded-xl w-full h-[300px]" src={image} alt="Shoes" /></figure>

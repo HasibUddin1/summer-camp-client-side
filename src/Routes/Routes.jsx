@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import SelectedClasses from "../Pages/StudentDashboard/SelectedClasses/SelectedClasses";
+import PaymentHistory from "../Pages/StudentDashboard/PaymentHistory/PaymentHistory";
+import EnrolledClasses from "../Pages/StudentDashboard/EnrolledClasses/EnrolledClasses";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +45,14 @@ export const router = createBrowserRouter([
             {
                 path: 'selectedClasses',
                 element: <SelectedClasses></SelectedClasses>
+            },
+            {
+                path: 'enrolledClasses',
+                element: <EnrolledClasses></EnrolledClasses>
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

@@ -24,8 +24,9 @@ const Dashboard = () => {
                         isStudent ?
                             <>
                                 <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link>My Selected Classes</Link></li>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link>My Enrolled Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/selectedClasses'>My Selected Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/enrolledClasses'>My Enrolled Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/paymentHistory'>Payment History</Link></li>
                             </> :
                             <>
                                 <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>

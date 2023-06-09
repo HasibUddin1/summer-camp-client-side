@@ -1,12 +1,37 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Class = ({ singleClass }) => {
 
     const {name, image, instructorName, availableSeats, price} = singleClass
 
+    const {user} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
     const handleSelect = () => {
-        console.log('button is clicked')
-        // TODO: Private route implementation
+        if(user){
+            console.log('button is clicked')
+        }
+        else{
+            Swal.fire({
+                title: '',
+                text: "You must be logged in to select this course",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  navigate('/login')
+                }
+              })
+        }
+        
     }
 
     return (

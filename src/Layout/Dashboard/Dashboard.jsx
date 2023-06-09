@@ -5,7 +5,8 @@ import useStudent from "../../hooks/useStudent";
 const Dashboard = () => {
 
     const [isStudent] = useStudent()
-    console.log(isStudent)
+    // isStudent = false
+    // console.log(isStudent)
 
     return (
         <div className="drawer lg:drawer-open">
@@ -17,10 +18,19 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-80 h-full bg-slate-800 text-white">
                     {/* Sidebar content here */}
-                    <li><Link to='/'>Home</Link></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    {
+                        isStudent ?
+                            <>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link>My Selected Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link>My Enrolled Classes</Link></li>
+                            </> :
+                            <>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
+                            </>
+                    }
                 </ul>
 
             </div>

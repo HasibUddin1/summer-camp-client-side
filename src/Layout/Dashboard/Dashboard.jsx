@@ -1,7 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
+import useStudent from "../../hooks/useStudent";
 
 
 const Dashboard = () => {
+
+    const [isStudent] = useStudent()
+    console.log(isStudent)
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

@@ -25,8 +25,26 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                const loggedUser = result.user
-                console.log(loggedUser)
+                const loggedInUser = result.user
+                console.log(loggedInUser)
+                const createdUser = {
+                    name: loggedInUser.displayName,
+                    email: loggedInUser.email,
+                    photo: loggedInUser.photoURL,
+                    role: 'student'
+                }
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(createdUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        // navigate(from, { replace: true })
+                    })
             })
             .catch(error => {
                 console.log(error)

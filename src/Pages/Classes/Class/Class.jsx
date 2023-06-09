@@ -6,6 +6,7 @@ const Class = ({ singleClass }) => {
 
     const handleSelect = () => {
         console.log('button is clicked')
+        // TODO: Private route implementation
     }
 
     return (

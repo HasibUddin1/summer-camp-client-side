@@ -3,6 +3,7 @@ import registerImage from '../../assets/images/images/login-form-image.jpg'
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -14,39 +15,65 @@ const Register = () => {
 
     const onSubmit = data => {
         console.log(data)
-        
-        if(data.password.length < 6){
+
+        if (data.password.length < 6) {
             setError('Password must be 6 characters long')
-            return 
+            return
         }
-        
-        if(!/(?=.*\W)/.test(data.password)){
+
+        if (!/(?=.*\W)/.test(data.password)) {
             setError('Password must contain one special character')
             return
         }
 
-        if(!/(?=.*[A-Z])/.test(data.password)){
+        if (!/(?=.*[A-Z])/.test(data.password)) {
             setError('Password must contain one capital letter')
             return
         }
-        
+
         if (data.password !== data.confirmPassword) {
             setError('Password did not match')
             return
         }
-        
+
         setError('')
         createUser(data.email, data.password)
             .then(result => {
                 const registeredUser = result.user
                 console.log(registeredUser)
                 updateUserProfile(registeredUser, data.name, data.photo)
-                .then(() => {
-                    alert('User Profile has been updated')
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+                    .then(() => {
+                        alert('User Profile has been updated')
+
+                        const createdUser = {
+                            email: registeredUser.email,
+                            name: data.name,
+                            photo: data.photo,
+                            role: 'student'
+                        }
+
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(createdUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'Do you want to continue',
+                                        icon: 'error',
+                                        confirmButtonText: 'Cool'
+                                    })
+                                }
+                            })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
                 console.log(error)

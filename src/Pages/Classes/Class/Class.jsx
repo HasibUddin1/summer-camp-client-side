@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
-const Class = ({ singleClass, refetch }) => {
+const Class = ({ singleClass}) => {
 
     const { _id, name, image, instructorName, availableSeats, price } = singleClass
 
@@ -17,7 +17,7 @@ const Class = ({ singleClass, refetch }) => {
 
     const navigate = useNavigate()
 
-    const handleSelect = (classData) => {
+    const handleSelect = () => {
         // console.log(classData)
         // classData.email = user?.email
         // classData.className = name
@@ -28,7 +28,8 @@ const Class = ({ singleClass, refetch }) => {
                 instructorName,
                 image,
                 price,
-                selectedClassId: _id
+                selectedClassId: _id,
+                availableSeats
             }
             axiosSecure.post(`/selectedClasses/${_id}`, selectedClass)
                 .then(res => {
@@ -40,13 +41,7 @@ const Class = ({ singleClass, refetch }) => {
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
-                        axiosSecure.patch(`/selectedClasses/${_id}`,classData)
-                            .then(res => {
-                                console.log(res.data)
-                                if (res.data.modifiedCount > 0) {
-                                    refetch()
-                                }
-                            })
+                        
                     }
 
                     if (res.data.message) {
@@ -102,7 +97,7 @@ const Class = ({ singleClass, refetch }) => {
                         <div className="badge badge-outline">Most Popular</div>
                         <div className="badge badge-outline">Services</div>
                     </div>
-                    <button onClick={() => handleSelect(singleClass)} disabled={availableSeats === 0} className={
+                    <button onClick={handleSelect} disabled={availableSeats === 0} className={
                         availableSeats === 0 ?
                             'bg-slate-200 text-black font-bold py-2 rounded-xl' :
                             'bg-slate-200 text-black font-bold py-2 rounded-xl hover:bg-slate-400 ease-in-out duration-200'

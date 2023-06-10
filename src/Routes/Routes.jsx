@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import SelectedClasses from "../Pages/StudentDashboard/SelectedClasses/SelectedClasses";
 import PaymentHistory from "../Pages/StudentDashboard/PaymentHistory/PaymentHistory";
 import EnrolledClasses from "../Pages/StudentDashboard/EnrolledClasses/EnrolledClasses";
+import PaymentConfirm from "../Pages/StudentDashboard/SelectedClasses/PaymentConfirm.jsx/PaymentConfirm";
 
 export const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
             {
                 path: 'paymentHistory',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'paymentConfirm',
+                element: <PaymentConfirm></PaymentConfirm>
             }
         ]
     }

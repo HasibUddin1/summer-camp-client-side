@@ -17,7 +17,7 @@ const Classes = () => {
 
     return (
         <div>
-            <h1 className="text-5xl text-center font-bold mt-10">All available classes</h1>
+            <h1 className="text-5xl text-center font-bold mt-10">All Available Classes</h1>
             <div className="grid md:grid-cols-3 gap-10 w-9/12 mx-auto mt-10">
                 {
                     classes.map(singleClass => <Class

@@ -87,7 +87,6 @@ const Class = ({ singleClass}) => {
                     <div className="mb-5">
                         <h2 className="card-title font-bold">
                             {name}
-                            <div className="badge badge-secondary">Popular</div>
                         </h2>
                         <p className="font-semibold">Available Seats : {availableSeats}</p>
                         <p className="font-semibold">Instructor : {instructorName}</p>

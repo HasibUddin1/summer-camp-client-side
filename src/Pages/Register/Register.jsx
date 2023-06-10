@@ -63,10 +63,10 @@ const Register = () => {
                             .then(data => {
                                 if (data.insertedId) {
                                     Swal.fire({
-                                        title: 'Error!',
-                                        text: 'Do you want to continue',
-                                        icon: 'error',
-                                        confirmButtonText: 'Cool'
+                                        title: 'Success',
+                                        text: 'User has been created successfully',
+                                        icon: 'success',
+                                        confirmButtonText: 'Ok'
                                     })
                                 }
                             })

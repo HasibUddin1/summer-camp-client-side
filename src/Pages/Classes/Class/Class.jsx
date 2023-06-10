@@ -6,17 +6,43 @@ import Swal from "sweetalert2";
 
 const Class = ({ singleClass }) => {
 
-    const {name, image, instructorName, availableSeats, price} = singleClass
+    const { _id, name, image, instructorName, availableSeats, price } = singleClass
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     const handleSelect = () => {
-        if(user){
-            console.log('button is clicked')
+        if (user) {
+            const selectedClass = {
+                email: user?.email,
+                name,
+                instructorName,
+                image,
+                price,
+                selectedClassId: _id
+            }
+            fetch('http://localhost:5000/selectedClasses', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedClass)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Your course has been added to your classes',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+                })
         }
-        else{
+        else {
             Swal.fire({
                 title: '',
                 text: "You must be logged in to select this course",
@@ -25,20 +51,20 @@ const Class = ({ singleClass }) => {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Login'
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                  navigate('/login')
+                    navigate('/login')
                 }
-              })
+            })
         }
-        
+
     }
 
     return (
         <div className={
             availableSeats === 0 ?
-            'card w-96 bg-red-500 shadow-xl rounded-xl text-white' :
-            'card w-96 bg-slate-800 shadow-xl rounded-xl text-white'
+                'card w-96 bg-red-500 shadow-xl rounded-xl text-white' :
+                'card w-96 bg-slate-800 shadow-xl rounded-xl text-white'
         }>
             <div className="flex flex-col justify-between">
                 <div>
@@ -60,8 +86,8 @@ const Class = ({ singleClass }) => {
                     </div>
                     <button onClick={handleSelect} disabled={availableSeats === 0} className={
                         availableSeats === 0 ?
-                        'bg-slate-200 text-black font-bold py-2 rounded-xl' :
-                        'bg-slate-200 text-black font-bold py-2 rounded-xl hover:bg-slate-400 ease-in-out duration-200'
+                            'bg-slate-200 text-black font-bold py-2 rounded-xl' :
+                            'bg-slate-200 text-black font-bold py-2 rounded-xl hover:bg-slate-400 ease-in-out duration-200'
                     }>Select</button>
                 </div>
             </div>

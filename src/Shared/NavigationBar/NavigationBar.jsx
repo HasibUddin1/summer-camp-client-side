@@ -32,6 +32,7 @@ const NavigationBar = () => {
                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/login'>Login</Link></li>
                 </>
         }
+        {/* TODO: User profile picture conditionally add korte hobe */}
     </>
 
     return (

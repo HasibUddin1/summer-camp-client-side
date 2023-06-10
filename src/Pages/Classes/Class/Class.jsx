@@ -18,7 +18,9 @@ const Class = ({ singleClass, refetch }) => {
     const navigate = useNavigate()
 
     const handleSelect = (classData) => {
-        console.log(classData)
+        // console.log(classData)
+        // classData.email = user?.email
+        // classData.className = name
         if (user) {
             const selectedClass = {
                 email: user?.email,
@@ -38,6 +40,13 @@ const Class = ({ singleClass, refetch }) => {
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
+                        axiosSecure.patch(`/selectedClasses/${_id}`,classData)
+                            .then(res => {
+                                console.log(res.data)
+                                if (res.data.modifiedCount > 0) {
+                                    refetch()
+                                }
+                            })
                     }
 
                     if (res.data.message) {
@@ -47,14 +56,6 @@ const Class = ({ singleClass, refetch }) => {
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         })
-                    }
-                })
-
-            axiosSecure.patch(`/selectedClasses/${_id}`, classData)
-                .then(res => {
-                    // console.log(res.data)
-                    if (res.data.modifiedCount > 0) {
-                        refetch()
                     }
                 })
         }

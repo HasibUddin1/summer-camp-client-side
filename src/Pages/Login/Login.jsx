@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/images/images/login-form-image.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -10,12 +10,15 @@ const Login = () => {
 
     const { googleLogin, signIn } = useContext(AuthContext)
 
+    const navigate = useNavigate()
+
     const onSubmit = data => {
         console.log(data)
         signIn(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser)
+                navigate('/')
             })
             .catch(error => {
                 console.log(error)
@@ -27,6 +30,7 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
+                navigate('/')
                 const createdUser = {
                     name: loggedInUser.displayName,
                     email: loggedInUser.email,

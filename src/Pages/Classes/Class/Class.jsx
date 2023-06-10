@@ -28,7 +28,7 @@ const Class = ({ singleClass, refetch }) => {
                 price,
                 selectedClassId: _id
             }
-            axiosSecure.post('/selectedClasses', selectedClass)
+            axiosSecure.post(`/selectedClasses/${_id}`, selectedClass)
                 .then(res => {
                     // console.log(res.data)
                     if (res.data.insertedId) {
@@ -39,17 +39,24 @@ const Class = ({ singleClass, refetch }) => {
                             confirmButtonText: 'Ok'
                         })
                     }
+
+                    if (res.data.message) {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'You already added this class',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
                 })
 
             axiosSecure.patch(`/selectedClasses/${_id}`, classData)
                 .then(res => {
                     // console.log(res.data)
-                    if(res.data.modifiedCount > 0){
+                    if (res.data.modifiedCount > 0) {
                         refetch()
                     }
                 })
-
-
         }
         else {
             Swal.fire({

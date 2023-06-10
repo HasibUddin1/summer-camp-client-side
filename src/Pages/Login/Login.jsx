@@ -42,8 +42,9 @@ const Login = () => {
                     body: JSON.stringify(createdUser)
                 })
                     .then(res => res.json())
-                    .then(() => {
-                        // navigate(from, { replace: true })
+                    .then((data) => {
+                        
+                        console.log(data)
                     })
             })
             .catch(error => {

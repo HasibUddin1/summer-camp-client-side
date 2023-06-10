@@ -2,17 +2,23 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
-const Class = ({ singleClass }) => {
+const Class = ({ singleClass, refetch }) => {
 
     const { _id, name, image, instructorName, availableSeats, price } = singleClass
 
     const { user } = useContext(AuthContext)
 
+    // const [classData, setClassData] = useState({})
+
+    const [axiosSecure] = useAxiosSecure()
+
     const navigate = useNavigate()
 
-    const handleSelect = () => {
+    const handleSelect = (classData) => {
+        console.log(classData)
         if (user) {
             const selectedClass = {
                 email: user?.email,
@@ -22,17 +28,10 @@ const Class = ({ singleClass }) => {
                 price,
                 selectedClassId: _id
             }
-            fetch('http://localhost:5000/selectedClasses', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(selectedClass)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.insertedId) {
+            axiosSecure.post('/selectedClasses', selectedClass)
+                .then(res => {
+                    // console.log(res.data)
+                    if (res.data.insertedId) {
                         Swal.fire({
                             title: 'Success',
                             text: 'Your course has been added to your classes',
@@ -41,6 +40,16 @@ const Class = ({ singleClass }) => {
                         })
                     }
                 })
+
+            axiosSecure.patch(`/selectedClasses/${_id}`, classData)
+                .then(res => {
+                    // console.log(res.data)
+                    if(res.data.modifiedCount > 0){
+                        refetch()
+                    }
+                })
+
+
         }
         else {
             Swal.fire({
@@ -59,6 +68,7 @@ const Class = ({ singleClass }) => {
         }
 
     }
+
 
     return (
         <div className={
@@ -84,7 +94,7 @@ const Class = ({ singleClass }) => {
                         <div className="badge badge-outline">Most Popular</div>
                         <div className="badge badge-outline">Services</div>
                     </div>
-                    <button onClick={handleSelect} disabled={availableSeats === 0} className={
+                    <button onClick={() => handleSelect(singleClass)} disabled={availableSeats === 0} className={
                         availableSeats === 0 ?
                             'bg-slate-200 text-black font-bold py-2 rounded-xl' :
                             'bg-slate-200 text-black font-bold py-2 rounded-xl hover:bg-slate-400 ease-in-out duration-200'

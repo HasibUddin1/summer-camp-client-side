@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Class from "./Class/Class";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Classes = () => {
 
-    const [classes, setClasses] = useState([])
+    // const [classes, setClasses] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/classes')
-        .then(res => res.json())
-        .then(data => setClasses(data))
-    }, [])
+    const {data: classes=[], refetch} = useQuery({
+        queryKey: ['classes'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/classes')
+            return res.json()
+        }
+    })
 
     return (
         <div>
@@ -20,6 +23,7 @@ const Classes = () => {
                     classes.map(singleClass => <Class
                         key={singleClass._id}
                         singleClass={singleClass}
+                        refetch={refetch}
                     >
                     </Class>)
                 }

@@ -4,7 +4,7 @@ const SingleInstructors = ({ instructor }) => {
     // console.log(instructor)
     const { name, image, className, students } = instructor
     return (
-        <div className="card w-96 bg-slate-200 shadow-xl">
+        <div className="card w-96 bg-slate-200 shadow-xl mb-5 md:mb-0">
             <div className="card-body">
                 <h2 className="card-title font-bold">{name}</h2>
                 <p className="font-semibold">Class Name: {className}</p>

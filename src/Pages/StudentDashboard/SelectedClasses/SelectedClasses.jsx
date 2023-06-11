@@ -19,6 +19,8 @@ const SelectedClasses = () => {
             })
     }, [axiosSecure, user])
 
+    // TODO: must implement a delete button to remove a class
+
     return (
         <div className="w-full">
             <h1 className="text-4xl text-center font-bold mt-10">Your Selected Classes</h1>

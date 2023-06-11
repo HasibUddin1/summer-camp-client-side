@@ -6,7 +6,7 @@ import bannerThree from '../../../assets/images/banner/banner-image-3.jpg'
 
 const Banner = () => {
     return (
-        <Carousel className="-mt-36">
+        <Carousel className="md:-mt-36">
             <div>
                 <img src={bannerOne} alt="" />
             </div>

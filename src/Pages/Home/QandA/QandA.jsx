@@ -4,7 +4,7 @@ const QandA = () => {
     return (
         <div className="w-9/12 mx-auto">
             <h1 className="text-4xl text-center font-bold border-t-4 border-b-4 w-1/6 mx-auto py-2">Q&A</h1>
-            <div className='flex items-center gap-10'>
+            <div className='md:flex items-center gap-10'>
                 <div className='w-1/2'>
                     <div className="collapse collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion-2" readOnly />

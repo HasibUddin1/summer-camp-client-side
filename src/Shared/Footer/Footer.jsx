@@ -10,7 +10,7 @@ const Footer = () => {
                     <img className='w-[80px] h-[80px]' src={logo} alt="" />
                     <p className='font-bold text-xl'>Language Club</p>
                 </div>
-                <p>Language Club<br />Providing reliable services since 2020</p>
+                <p>Language Club<br />Providing reliable services since 2020. <br /> Copyright &copy; 2020</p>
             </div>
             <div>
                 <span className="footer-title">Services</span>

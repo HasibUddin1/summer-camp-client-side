@@ -15,6 +15,9 @@ import ManageClasses from "../Pages/AdminDashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers/ManageUsers";
 import AddAClass from "../Pages/InstructorDashboard/AddAClass/AddAClass";
 import InstructorClasses from "../Pages/InstructorDashboard/InstructorClasses/InstructorClasses";
+import StudentRoute from "./StudentRoute";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 export const router = createBrowserRouter([
     {
@@ -49,35 +52,35 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'selectedClasses',
-                element: <SelectedClasses></SelectedClasses>
+                element: <StudentRoute><SelectedClasses></SelectedClasses></StudentRoute>
             },
             {
                 path: 'enrolledClasses',
-                element: <EnrolledClasses></EnrolledClasses>
+                element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
             },
             {
                 path: 'paymentHistory',
-                element: <PaymentHistory></PaymentHistory>
+                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
             },
             {
                 path: 'paymentConfirm',
-                element: <PaymentConfirm></PaymentConfirm>
+                element: <StudentRoute><PaymentConfirm></PaymentConfirm></StudentRoute>
             },
             {
                 path: 'manageClasses',
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: 'manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
                 path: 'addAClass',
-                element: <AddAClass></AddAClass>
+                element: <InstructorRoute><AddAClass></AddAClass></InstructorRoute>
             },
             {
                 path: 'instructorClasses',
-                element: <InstructorClasses></InstructorClasses>
+                element: <InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
             }
         ]
     }

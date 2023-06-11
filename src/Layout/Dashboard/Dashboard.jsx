@@ -5,6 +5,7 @@ import useInstructor from "../../hooks/useInstructor";
 
 
 const Dashboard = () => {
+    // TODO: Private route implementation is left for student, instructor and admin
 
     const [isStudent] = useStudent()
     // isStudent = false

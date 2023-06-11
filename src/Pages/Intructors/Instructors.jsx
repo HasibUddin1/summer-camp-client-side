@@ -12,7 +12,7 @@ const Instructors = () => {
     }, [])
 
     return (
-        <div>
+        <div className="mb-10">
             <h1 className="text-4xl text-center font-bold mt-10">All Instructors</h1>
             <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
                 <div className="overflow-x-auto">

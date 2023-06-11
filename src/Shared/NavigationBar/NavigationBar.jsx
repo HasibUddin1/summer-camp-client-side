@@ -32,6 +32,11 @@ const NavigationBar = () => {
             user ?
                 <>
                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard'>Dashboard</Link></li>
+                    <li>
+                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                            <img className="rounded-full w-[30px] h-[30px]" src={user?.photoURL} alt="" />
+                        </div>
+                    </li>
                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><button onClick={handleLogout}>Logout</button></li>
                 </> :
                 <>

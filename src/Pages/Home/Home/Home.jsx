@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import QandA from "../QandA/QandA";
 
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
-            {/* TODO: Ekta extra section korte hobe */}
+            <QandA></QandA>
         </div>
     );
 };

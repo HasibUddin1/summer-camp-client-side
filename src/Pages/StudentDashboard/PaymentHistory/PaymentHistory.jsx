@@ -18,7 +18,6 @@ const PaymentHistory = () => {
             })
     }, [axiosSecure, user])
 
-    // TODO: Payment History component is left
     return (
         <div className="w-full">
             <h1 className="text-4xl text-center font-bold mt-10">Payment History</h1>

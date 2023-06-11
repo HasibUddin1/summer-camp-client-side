@@ -21,7 +21,6 @@ const Class = ({ singleClass }) => {
     const [isInstructor] = useInstructor()
 
     const navigate = useNavigate()
-    // TODO: must implement redirecting user to the page where he left off
 
     const handleSelect = () => {
         // console.log(classData)

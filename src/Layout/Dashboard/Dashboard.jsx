@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import useStudent from "../../hooks/useStudent";
+import useAdmin from "../../hooks/useAdmin";
 
 
 const Dashboard = () => {
@@ -7,6 +8,8 @@ const Dashboard = () => {
     const [isStudent] = useStudent()
     // isStudent = false
     // console.log(isStudent)
+    const [isAdmin] = useAdmin()
+    // console.log(isAdmin)
 
     return (
         <div className="drawer lg:drawer-open">
@@ -27,10 +30,15 @@ const Dashboard = () => {
                                 <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/selectedClasses'>My Selected Classes</Link></li>
                                 <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/enrolledClasses'>My Enrolled Classes</Link></li>
                                 <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/paymentHistory'>Payment History</Link></li>
-                            </> :
-                            <>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                            </>
+                            </> : isAdmin ?
+                                <>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageUsers'>Manage Users</Link></li>
+                                </> :
+                                <>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
+                                </>
                     }
                 </ul>
 

@@ -11,6 +11,8 @@ import SelectedClasses from "../Pages/StudentDashboard/SelectedClasses/SelectedC
 import PaymentHistory from "../Pages/StudentDashboard/PaymentHistory/PaymentHistory";
 import EnrolledClasses from "../Pages/StudentDashboard/EnrolledClasses/EnrolledClasses";
 import PaymentConfirm from "../Pages/StudentDashboard/SelectedClasses/PaymentConfirm.jsx/PaymentConfirm";
+import ManageClasses from "../Pages/AdminDashboard/ManageClasses/ManageClasses";
+import ManageUsers from "../Pages/AdminDashboard/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
     {
@@ -58,6 +60,14 @@ export const router = createBrowserRouter([
             {
                 path: 'paymentConfirm',
                 element: <PaymentConfirm></PaymentConfirm>
+            },
+            {
+                path: 'manageClasses',
+                element: <ManageClasses></ManageClasses>
+            },
+            {
+                path: 'manageUsers',
+                element: <ManageUsers></ManageUsers>
             }
         ]
     }

@@ -30,7 +30,6 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
-                navigate('/')
                 const createdUser = {
                     name: loggedInUser.displayName,
                     email: loggedInUser.email,
@@ -46,10 +45,11 @@ const Login = () => {
                     body: JSON.stringify(createdUser)
                 })
                     .then(res => res.json())
-                    .then((data) => {
-                        
-                        console.log(data)
+                    .then(() => {
+
+                        // console.log(data)
                     })
+                navigate('/')
             })
             .catch(error => {
                 console.log(error)

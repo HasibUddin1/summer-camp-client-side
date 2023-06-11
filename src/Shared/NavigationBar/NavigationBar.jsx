@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logos/pngwing.com.png'
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 
 const NavigationBar = () => {
@@ -11,7 +12,12 @@ const NavigationBar = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                alert('User has been logged out')
+                Swal.fire({
+                    title: 'Success',
+                    text: 'You have successfully logged out',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
             })
             .catch(error => {
                 console.log(error)

@@ -5,9 +5,9 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
-const Class = ({ singleClass}) => {
+const Class = ({ singleClass }) => {
 
-    const { _id, name, image, instructorName, availableSeats, price } = singleClass
+    const { _id, name, image, instructorName, availableSeats, price, students } = singleClass
 
     const { user } = useContext(AuthContext)
 
@@ -30,7 +30,8 @@ const Class = ({ singleClass}) => {
                 image,
                 price,
                 selectedClassId: _id,
-                availableSeats
+                availableSeats,
+                students
             }
             axiosSecure.post(`/selectedClasses/${_id}`, selectedClass)
                 .then(res => {
@@ -42,7 +43,7 @@ const Class = ({ singleClass}) => {
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
-                        
+
                     }
 
                     if (res.data.message) {

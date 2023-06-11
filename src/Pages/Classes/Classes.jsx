@@ -14,6 +14,7 @@ const Classes = () => {
             return res.json()
         }
     })
+    // console.log(classes)
 
     return (
         <div>

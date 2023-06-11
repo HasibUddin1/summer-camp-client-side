@@ -97,7 +97,6 @@ const Checkout = ({ selectedClasses, price }) => {
                         //     .then(res => {
                         //         console.log(res.data)
                         //         if (res.data.modifiedCount > 0) {
-                        //             // display sweetAlert
                         //         }
                         //     })
                         selectedClasses.map(singleClass => {
@@ -105,6 +104,13 @@ const Checkout = ({ selectedClasses, price }) => {
                             axiosSecure.patch(`/selectedClasses/${singleClass.selectedClassId}`, singleClass)
                                 .then(res => {
                                     // console.log(res.data)
+                                    if (res.data.modifiedCount > 0) {
+                                        // display sweetAlert
+                                    }
+                                })
+
+                            axiosSecure.patch(`/updateStudentsCount/${singleClass.selectedClassId}`, singleClass)
+                                .then(res => {
                                     if (res.data.modifiedCount > 0) {
                                         // display sweetAlert
                                     }

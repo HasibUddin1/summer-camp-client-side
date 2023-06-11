@@ -13,6 +13,7 @@ const PaymentConfirm = () => {
     const {user} = useContext(AuthContext)
 
     const [selectedClasses, setSelectedClasses] = useState([])
+    // console.log(selectedClasses)
 
     const [axiosSecure] = useAxiosSecure()
 

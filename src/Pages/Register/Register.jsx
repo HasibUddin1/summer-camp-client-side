@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registerImage from '../../assets/images/images/login-form-image.jpg'
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
@@ -12,6 +12,8 @@ const Register = () => {
     const [error, setError] = useState('')
 
     const { createUser, updateUserProfile } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const onSubmit = data => {
         console.log(data)
@@ -43,7 +45,8 @@ const Register = () => {
                 console.log(registeredUser)
                 updateUserProfile(registeredUser, data.name, data.photo)
                     .then(() => {
-                        alert('User Profile has been updated')
+                        // alert('User Profile has been updated')
+                        navigate('/')
 
                         const createdUser = {
                             email: registeredUser.email,

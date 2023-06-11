@@ -16,6 +16,7 @@ const Class = ({ singleClass}) => {
     const [axiosSecure] = useAxiosSecure()
 
     const navigate = useNavigate()
+    // TODO: must implement redirecting user to the page where he left off
 
     const handleSelect = () => {
         // console.log(classData)

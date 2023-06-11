@@ -25,7 +25,7 @@ const ManageUsers = () => {
     
 
     const handleMakeInstructor = (id) => {
-        console.log('button clicked', id)
+        // console.log('button clicked', id)
         axiosSecure.patch(`/users/instructor/${id}`)
         .then(res => {
             // console.log(res.data)
@@ -37,7 +37,7 @@ const ManageUsers = () => {
     }
 
     const handleMakeAdmin = (id) => {
-        console.log('button clicked', id)
+        // console.log('button clicked', id)
         axiosSecure.patch(`/users/admin/${id}`)
         .then(res => {
             // console.log(res.data)

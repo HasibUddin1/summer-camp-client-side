@@ -13,6 +13,8 @@ import EnrolledClasses from "../Pages/StudentDashboard/EnrolledClasses/EnrolledC
 import PaymentConfirm from "../Pages/StudentDashboard/SelectedClasses/PaymentConfirm.jsx/PaymentConfirm";
 import ManageClasses from "../Pages/AdminDashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers/ManageUsers";
+import AddAClass from "../Pages/InstructorDashboard/AddAClass/AddAClass";
+import InstructorClasses from "../Pages/InstructorDashboard/InstructorClasses/InstructorClasses";
 
 export const router = createBrowserRouter([
     {
@@ -68,6 +70,14 @@ export const router = createBrowserRouter([
             {
                 path: 'manageUsers',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'addAClass',
+                element: <AddAClass></AddAClass>
+            },
+            {
+                path: 'instructorClasses',
+                element: <InstructorClasses></InstructorClasses>
             }
         ]
     }

@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import useStudent from "../../hooks/useStudent";
 import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 
 const Dashboard = () => {
@@ -10,6 +11,8 @@ const Dashboard = () => {
     // console.log(isStudent)
     const [isAdmin] = useAdmin()
     // console.log(isAdmin)
+    const [isInstructor] = useInstructor()
+    // console.log(isInstructor)
 
     return (
         <div className="drawer lg:drawer-open">
@@ -35,10 +38,14 @@ const Dashboard = () => {
                                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
                                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
                                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageUsers'>Manage Users</Link></li>
-                                </> :
-                                <>
-                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                                </>
+                                </> : isInstructor ?
+                                    <>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/addAClass'>Add A Class</Link></li>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/instructorClasses'>My Classes</Link></li>
+                                    </> :
+                                    <>
+                                    </>
                     }
                 </ul>
 

@@ -12,7 +12,7 @@ const EnrolledClasses = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        axiosSecure.get(`http://localhost:5000/enrolledClasses/${user?.email}`)
+        axiosSecure.get(`https://summer-camp-learning-server-side.vercel.app/enrolledClasses/${user?.email}`)
         .then(res => {
             setClasses(res.data)
         })

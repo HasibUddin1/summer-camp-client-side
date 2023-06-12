@@ -37,7 +37,7 @@ const Login = () => {
                     role: 'student'
                 }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://summer-camp-learning-server-side.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

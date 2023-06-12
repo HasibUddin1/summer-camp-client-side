@@ -6,7 +6,7 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://summer-camp-learning-server-side.vercel.app',
 });
 
 

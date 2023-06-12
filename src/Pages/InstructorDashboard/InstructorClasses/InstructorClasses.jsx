@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const InstructorClasses = () => {
@@ -55,7 +56,9 @@ const InstructorClasses = () => {
                                     <td className="font-bold">{singleClass.status}</td>
                                     <td className="font-bold text-center">{singleClass.students}</td>
                                     <td className="font-bold text-center">{singleClass?.feedback}</td>
-                                    <td className="text-center"><button className='text-start px-6 bg-slate-300 text-black font-semibold py-2 rounded-xl hover:bg-slate-500 ease-in-out duration-200'>Update</button></td>
+                                    <td className="text-center"><Link to={`/dashboard/updateAClass/${singleClass._id}`}>
+                                        <button className='text-start px-6 bg-slate-300 text-black font-semibold py-2 rounded-xl hover:bg-slate-500 ease-in-out duration-200'>Update</button>
+                                    </Link></td>
                                 </tr>)
                             }
                         </tbody>

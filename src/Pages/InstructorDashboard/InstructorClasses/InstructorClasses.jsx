@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 
 const InstructorClasses = () => {
+
+    useTitle('My Classes')
 
     const { user } = useContext(AuthContext)
 

@@ -2,9 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 
 const ManageClasses = () => {
+
+    useTitle('Manage Classes')
 
     const [axiosSecure] = useAxiosSecure()
 

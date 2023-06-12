@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import useTitle from "../../../hooks/useTitle";
 
 
 const EnrolledClasses = () => {
+
+    useTitle('My Enrolled Classes')
 
     const [axiosSecure] = useAxiosSecure()
 

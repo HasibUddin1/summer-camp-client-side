@@ -1,12 +1,15 @@
 // import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import useTitle from "../../../hooks/useTitle";
 // import useAdmin from "../../../hooks/useAdmin";
 // import useInstructor from "../../../hooks/useInstructor";
 
 
 
 const ManageUsers = () => {
+
+    useTitle('Manage Users')
 
     const [axiosSecure] = useAxiosSecure()
 

@@ -4,9 +4,12 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import useTitle from "../../../hooks/useTitle";
 
 
 const SelectedClasses = () => {
+
+    useTitle('My Selected Classes')
 
     const [axiosSecure] = useAxiosSecure()
 

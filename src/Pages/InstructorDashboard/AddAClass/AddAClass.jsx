@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 
 const AddAClass = () => {
+
+    useTitle('Add A Class')
 
     const { user } = useContext(AuthContext)
     // console.log(user.displayName, user.email)

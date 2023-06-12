@@ -4,8 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+
+    useTitle('Register')
 
     const { register, handleSubmit, } = useForm();
 

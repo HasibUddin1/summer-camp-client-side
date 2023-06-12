@@ -1,9 +1,12 @@
 // import { useEffect, useState } from "react";
+import useTitle from "../../hooks/useTitle";
 import Class from "./Class/Class";
 import { useQuery } from "@tanstack/react-query";
 
 
 const Classes = () => {
+
+    useTitle('Classes')
 
     // const [classes, setClasses] = useState([])
 

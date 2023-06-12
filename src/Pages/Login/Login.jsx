@@ -3,8 +3,12 @@ import loginImage from '../../assets/images/images/login-form-image.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useForm } from 'react-hook-form';
+import useTitle from '../../hooks/useTitle';
+
 
 const Login = () => {
+
+    useTitle('Login')
 
     const { register, handleSubmit } = useForm();
 

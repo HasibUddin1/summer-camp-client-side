@@ -3,9 +3,12 @@ import { AuthContext } from "../../../../Providers/AuthProviders";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useTitle from "../../../../hooks/useTitle";
 
 
 const UpdateAClass = () => {
+
+    useTitle('Update A Class')
 
     const { user } = useContext(AuthContext)
 

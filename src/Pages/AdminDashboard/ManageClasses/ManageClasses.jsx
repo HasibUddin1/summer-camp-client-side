@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const ManageClasses = () => {
@@ -19,35 +20,35 @@ const ManageClasses = () => {
     const handleApprove = (id) => {
         // console.log('button clicked')
         axiosSecure.patch(`/approveClass/${id}`)
-        .then(res => {
-            // console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                refetch()
-                Swal.fire({
-                    title: 'Success',
-                    text: 'You approved this class',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                })
-            }
-        })
+            .then(res => {
+                // console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'You approved this class',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
     }
 
     const handleDeny = (id) => {
         // console.log('button clicked', id)
         axiosSecure.patch(`/denyClass/${id}`)
-        .then(res => {
-            // console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                refetch()
-                Swal.fire({
-                    title: '',
-                    text: 'You rejected this class',
-                    icon: 'error',
-                    confirmButtonText: 'Ok'
-                })
-            }
-        })
+            .then(res => {
+                // console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        title: '',
+                        text: 'You rejected this class',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
     }
 
     return (
@@ -93,7 +94,7 @@ const ManageClasses = () => {
                                             'text-start px-6 bg-slate-300 text-slate-500 font-semibold py-2 rounded-xl' :
                                             'text-start px-6 bg-slate-300 text-black font-semibold py-2 rounded-xl hover:bg-slate-500 ease-in-out duration-200'
                                     }>Deny</button></td>
-                                    <td className="text-center"><button className='text-start px-6 bg-slate-300 text-black font-semibold py-2 rounded-xl hover:bg-slate-500 ease-in-out duration-200'>Send Feedback</button></td>
+                                    <td className="text-center"><Link to={`/dashboard/sendFeedback/${singleClass._id}`}><button className='text-start px-6 bg-slate-300 text-black font-semibold py-2 rounded-xl hover:bg-slate-500 ease-in-out duration-200'>Send Feedback</button></Link></td>
                                 </tr>)
                             }
                         </tbody>

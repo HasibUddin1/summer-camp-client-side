@@ -18,6 +18,7 @@ import InstructorClasses from "../Pages/InstructorDashboard/InstructorClasses/In
 import StudentRoute from "./StudentRoute";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import SendFeedback from "../Pages/AdminDashboard/ManageClasses/SendFeedback/SendFeedback";
 
 export const router = createBrowserRouter([
     {
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
             {
                 path: 'instructorClasses',
                 element: <InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
+            },
+            {
+                path: 'sendFeedback/:id',
+                element: <AdminRoute><SendFeedback></SendFeedback></AdminRoute>
             }
         ]
     }

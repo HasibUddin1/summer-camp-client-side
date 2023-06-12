@@ -1,8 +1,6 @@
 import logo from '../../assets/images/logos/pngwing.com.png'
 
 const Footer = () => {
-
-    // TODO: Making footer is left
     return (
         <footer className="footer p-10 bg-slate-800 text-white">
             <div>

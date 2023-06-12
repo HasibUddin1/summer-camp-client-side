@@ -20,11 +20,13 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import SendFeedback from "../Pages/AdminDashboard/ManageClasses/SendFeedback/SendFeedback";
 import UpdateAClass from "../Pages/InstructorDashboard/InstructorClasses/UpdateAClass/UpdateAClass";
+import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -51,6 +53,7 @@ export const router = createBrowserRouter([
     {
         path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: 'selectedClasses',

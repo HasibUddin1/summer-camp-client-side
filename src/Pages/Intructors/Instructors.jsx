@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
+import { Fade, Slide } from "react-awesome-reveal";
 
 
 const Instructors = () => {
@@ -16,7 +17,12 @@ const Instructors = () => {
 
     return (
         <div className="mb-10">
-            <h1 className="text-4xl text-center font-bold mt-10">All Instructors</h1>
+            <Slide>
+                <h1 className="mt-10 text-4xl text-center font-bold mb-5 text-slate-800 border-t-4 border-b-4 py-2 w-1/5 mx-auto border-slate-800">All Instructors</h1>
+            </Slide>
+            <Fade delay={1e3} cascade damping={1e-1}>
+                <p className="text-center text-xl mb-5">Here you will see our Instructors</p>
+            </Fade>
             <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
                 <div className="overflow-x-auto">
                     <table className="table">

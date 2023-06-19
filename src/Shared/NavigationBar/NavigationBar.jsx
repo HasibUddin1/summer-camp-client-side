@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
 
+
 const NavigationBar = () => {
 
     const { user, logOut } = useContext(AuthContext)

@@ -3,15 +3,28 @@ import { Fade, Slide } from "react-awesome-reveal";
 import useTitle from "../../hooks/useTitle";
 import Class from "./Class/Class";
 import { useQuery } from "@tanstack/react-query";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+
+
+import { Pagination } from "swiper";
 
 
 const Classes = () => {
 
     useTitle('Classes')
 
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    };
+
     // const [classes, setClasses] = useState([])
 
-    const {data: classes=[], refetch} = useQuery({
+    const { data: classes = [], refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await fetch('https://summer-camp-learning-server-side.vercel.app/classes')
@@ -28,16 +41,94 @@ const Classes = () => {
             <Fade delay={1e3} cascade damping={1e-1}>
                 <p className="text-center text-xl mb-5">Here you will see our classes</p>
             </Fade>
-            <div className="grid md:grid-cols-3 gap-10 w-9/12 mx-auto mt-10 mb-10">
+            <Swiper
+                pagination={pagination}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+                <SwiperSlide>
+                    <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                        {
+                            classes.slice(0, 6).map(singleClass => <Class
+                                key={singleClass._id}
+                                singleClass={singleClass}
+                                refetch={refetch}
+                            >
+                            </Class>)
+                        }
+                    </div>
+                </SwiperSlide>
                 {
-                    classes.map(singleClass => <Class
-                        key={singleClass._id}
-                        singleClass={singleClass}
-                        refetch={refetch}
-                    >
-                    </Class>)
+                    classes.length > 6 && <SwiperSlide>
+                        <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                            {
+                                classes.slice(6, 12).map(singleClass => <Class
+                                    key={singleClass._id}
+                                    singleClass={singleClass}
+                                    refetch={refetch}
+                                >
+                                </Class>)
+                            }
+                        </div>
+                    </SwiperSlide>
                 }
-            </div>
+                {
+                    classes.length > 12 && <SwiperSlide>
+                        <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                            {
+                                classes.slice(12, 18).map(singleClass => <Class
+                                    key={singleClass._id}
+                                    singleClass={singleClass}
+                                    refetch={refetch}
+                                >
+                                </Class>)
+                            }
+                        </div>
+                    </SwiperSlide>
+                }
+                {
+                    classes.length > 18 && <SwiperSlide>
+                        <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                            {
+                                classes.slice(18, 24).map(singleClass => <Class
+                                    key={singleClass._id}
+                                    singleClass={singleClass}
+                                    refetch={refetch}
+                                >
+                                </Class>)
+                            }
+                        </div>
+                    </SwiperSlide>
+                }
+                {
+                    classes.length > 24 && <SwiperSlide>
+                        <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                            {
+                                classes.slice(24, 30).map(singleClass => <Class
+                                    key={singleClass._id}
+                                    singleClass={singleClass}
+                                    refetch={refetch}
+                                >
+                                </Class>)
+                            }
+                        </div>
+                    </SwiperSlide>
+                }
+                {
+                    classes.length > 30 && <SwiperSlide>
+                        <div className="grid md:grid-cols-3 w-9/12 mx-auto gap-10 mt-10 mb-10">
+                            {
+                                classes.slice(30, 36).map(singleClass => <Class
+                                    key={singleClass._id}
+                                    singleClass={singleClass}
+                                    refetch={refetch}
+                                >
+                                </Class>)
+                            }
+                        </div>
+                    </SwiperSlide>
+                }
+            </Swiper>
         </div>
     );
 };

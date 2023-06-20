@@ -2,6 +2,11 @@ import { Link, Outlet } from "react-router-dom";
 import useStudent from "../../hooks/useStudent";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import { FaHome, FaBook, FaPenNib, FaUsers } from "react-icons/fa";
+import { MdClass, MdOutlineClass } from "react-icons/md";
+import { GiNotebook } from "react-icons/gi";
+
+
 
 
 const Dashboard = () => {
@@ -29,20 +34,20 @@ const Dashboard = () => {
                     {
                         isStudent ?
                             <>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/selectedClasses'>My Selected Classes</Link></li>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/enrolledClasses'>My Enrolled Classes</Link></li>
-                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/paymentHistory'>Payment History</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'><FaHome></FaHome> Home</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/selectedClasses'><MdClass></MdClass> My Selected Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/enrolledClasses'><MdOutlineClass></MdOutlineClass> My Enrolled Classes</Link></li>
+                                <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/paymentHistory'><GiNotebook></GiNotebook> Payment History</Link></li>
                             </> : isAdmin ?
                                 <>
-                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
-                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageUsers'>Manage Users</Link></li>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'><FaHome></FaHome> Home</Link></li>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageClasses'><FaPenNib></FaPenNib> Manage Classes</Link></li>
+                                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/manageUsers'><FaUsers></FaUsers> Manage Users</Link></li>
                                 </> : isInstructor ?
                                     <>
-                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/addAClass'>Add A Class</Link></li>
-                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/instructorClasses'>My Classes</Link></li>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'><FaHome></FaHome> Home</Link></li>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/addAClass'><FaBook></FaBook> Add A Class</Link></li>
+                                        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard/instructorClasses'><FaPenNib></FaPenNib> My Classes</Link></li>
                                     </> :
                                     <>
                                     </>

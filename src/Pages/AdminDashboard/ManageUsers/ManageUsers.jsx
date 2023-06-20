@@ -53,7 +53,7 @@ const ManageUsers = () => {
 
     return (
         <div className="w-full">
-            <h1 className="text-4xl text-center font-bold mt-10">Your Selected Classes</h1>
+            <h1 className="text-4xl text-center font-bold mt-10">All Users</h1>
             <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
                 <div className="overflow-x-auto">
                     <table className="table">

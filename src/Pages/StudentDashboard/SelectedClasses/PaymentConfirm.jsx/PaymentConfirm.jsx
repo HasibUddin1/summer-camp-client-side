@@ -29,9 +29,9 @@ const PaymentConfirm = () => {
     const price = parseFloat(total.toFixed(2))
 
     return (
-        <div>
+        <div className="w-9/12 mx-auto">
             <div>
-                <h1 className="text-4xl text-center font-bold">Total Price: ${price}</h1>
+                <h1 className="text-4xl text-center font-bold mb-5">Total Price: ${price}</h1>
             </div>
             <Elements stripe={stripePromise}>
                 <Checkout selectedClasses={selectedClasses} price={price}></Checkout>

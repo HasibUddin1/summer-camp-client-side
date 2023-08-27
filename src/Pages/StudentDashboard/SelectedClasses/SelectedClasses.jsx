@@ -58,7 +58,7 @@ const SelectedClasses = () => {
     }
 
     return (
-        <div>
+        <div className="w-full">
             {
                 selectedClasses.length === 0 ?
                 <h1 className="text-4xl font-bold">You do not have any selected classes</h1> :

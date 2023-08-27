@@ -22,7 +22,7 @@ const PaymentHistory = () => {
     }, [axiosSecure, user])
 
     return (
-        <div>
+        <div className="w-full">
             {
                 payments.length === 0 ?
                 <h1 className="text-4xl font-bold">You do not have any payment history</h1> :

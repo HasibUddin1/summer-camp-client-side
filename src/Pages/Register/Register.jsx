@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import useTitle from '../../hooks/useTitle';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
 
@@ -47,7 +48,7 @@ const Register = () => {
                 const registeredUser = result.user
                 updateUserProfile(registeredUser, data.name, data.photo)
                     .then(() => {
-                        // alert('User Profile has been updated')
+                        toast.success("Successfully created an account")
                         navigate('/')
 
                         const createdUser = {

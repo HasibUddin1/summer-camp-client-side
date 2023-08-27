@@ -23,7 +23,7 @@ const InstructorClasses = () => {
     }, [axiosSecure, user])
 
     return (
-        <div>
+        <div className="w-full">
             {
                 classes.length === 0 ?
                 <h1 className="text-4xl font-bold">You did not add any classes</h1> :

@@ -22,7 +22,7 @@ const EnrolledClasses = () => {
     }, [axiosSecure, user])
 
     return (
-        <div>
+        <div className="w-full">
             {
                 classes.length === 0 ?
                 <h1 className="text-4xl font-bold">You do not have any enrolled classes</h1> :

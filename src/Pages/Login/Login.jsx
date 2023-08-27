@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useForm } from 'react-hook-form';
 import useTitle from '../../hooks/useTitle';
+import { toast } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -23,9 +24,9 @@ const Login = () => {
         setError('')
         // console.log(data)
         signIn(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user
-                console.log(loggedUser)
+            .then(() => {
+                
+                toast.success("Successfully logged in")
                 navigate('/')
             })
             .catch(error => {
@@ -59,6 +60,7 @@ const Login = () => {
                     .then(() => {
 
                         // console.log(data)
+                        toast.success("Successfully logged in")
                     })
                 navigate('/')
             })

@@ -10,8 +10,8 @@ const QandA = () => {
             <Fade delay={1e3} cascade damping={1e-1}>
                 <p className="text-center text-xl mb-5">Frequently Asked Questions</p>
             </Fade>
-            <div className='md:flex items-center gap-10'>
-                <div className='w-1/2'>
+            <div className='lg:flex items-center gap-10'>
+                <div className='lg:w-1/2'>
                     <div className="collapse collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion-2" readOnly />
                         <div className="collapse-title text-xl font-medium">
@@ -40,7 +40,7 @@ const QandA = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-1/2'>
+                <div className='lg:w-1/2'>
                     <img src={questionsImage} alt="" />
                 </div>
             </div>

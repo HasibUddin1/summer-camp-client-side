@@ -20,12 +20,12 @@ const PopularClasses = () => {
     return (
         <div>
             <Slide>
-                <h1 className="text-4xl text-center font-bold mb-5 text-slate-800 border-t-4 border-b-4 py-2 w-1/5 mx-auto border-slate-800">Popular Classes</h1>
+                <h1 className="text-4xl text-center font-bold mb-5 text-slate-800 border-t-4 border-b-4 py-2 lg:w-1/5 mx-auto border-slate-800">Popular Classes</h1>
             </Slide>
             <Fade delay={1e3} cascade damping={1e-1}>
                 <p className="text-center text-xl mb-5">Here you will see our popular classes</p>
             </Fade>
-            <div className="grid md:grid-cols-3 gap-5 w-9/12 mx-auto">
+            <div className="grid lg:grid-cols-3 gap-5 lg:w-9/12 w-10/12 mx-auto">
                 {
                     classes.map(singleClass => <SingleClass
                         key={singleClass._id}

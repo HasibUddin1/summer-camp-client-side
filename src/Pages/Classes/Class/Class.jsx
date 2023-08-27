@@ -82,8 +82,8 @@ const Class = ({ singleClass }) => {
     return (
         <div className={
             availableSeats === 0 ?
-                'card w-96 bg-red-500 shadow-xl rounded-xl text-white' :
-                'card w-96 bg-slate-800 shadow-xl rounded-xl text-white'
+                'card lg:w-96 bg-red-500 shadow-xl rounded-xl text-white' :
+                'card lg:w-96 bg-slate-800 shadow-xl rounded-xl text-white'
         }>
             <div className="flex flex-col justify-between">
                 <div>

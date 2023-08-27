@@ -45,7 +45,6 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const registeredUser = result.user
-                console.log(registeredUser)
                 updateUserProfile(registeredUser, data.name, data.photo)
                     .then(() => {
                         // alert('User Profile has been updated')
@@ -79,10 +78,12 @@ const Register = () => {
                     })
                     .catch(error => {
                         console.log(error)
+                        setError("Unable to create your account")
                     })
             })
             .catch(error => {
                 console.log(error)
+                setError("Unable to create your account")
             })
     };
 
@@ -92,11 +93,11 @@ const Register = () => {
         <div>
             <div>
                 <div className="hero min-h-screen bg-base-200">
-                    <div className="hero-content flex bg-slate-200 rounded-2xl w-full shadow-2xl">
-                        <div className="text-center lg:text-left w-1/2">
+                    <div className="lg:hero-content lg:flex bg-slate-200 rounded-2xl w-full shadow-2xl">
+                        <div className="text-center lg:text-left lg:w-1/2 mx-5 lg:mx-0 mt-5 lg:mt-0">
                             <img className='rounded-2xl' src={registerImage} alt="" />
                         </div>
-                        <div className="w-1/2">
+                        <div className="lg:w-1/2">
                             <div className="card-body">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-control">
@@ -137,7 +138,7 @@ const Register = () => {
                                         <input className='btn btn-primary bg-slate-800 border-none' type="submit" value="Register" />
                                     </div>
                                 </form>
-                                {error && <p className='text-red-600 font-bold'>Error: {error}</p>}
+                                {error && <p className='text-red-600 font-bold text-center'>{error}</p>}
                             </div>
                         </div>
                     </div>

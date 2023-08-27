@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/images/images/login-form-image.jpg'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useForm } from 'react-hook-form';
 import useTitle from '../../hooks/useTitle';
@@ -14,9 +14,13 @@ const Login = () => {
 
     const { googleLogin, signIn } = useContext(AuthContext)
 
+    const [error, setError] = useState('')
+
     const navigate = useNavigate()
 
     const onSubmit = data => {
+
+        setError('')
         // console.log(data)
         signIn(data.email, data.password)
             .then(result => {
@@ -26,10 +30,13 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error)
+                setError("Your credentials do not match")
             })
     };
 
     const handleGoogleLogin = () => {
+
+        setError('')
         googleLogin()
             .then(result => {
                 const loggedInUser = result.user
@@ -63,11 +70,11 @@ const Login = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex bg-slate-200 rounded-2xl w-full shadow-2xl">
-                    <div className="text-center lg:text-left w-1/2">
+                <div className="lg:hero-content lg:flex bg-slate-200 rounded-2xl w-full shadow-2xl">
+                    <div className="text-center lg:text-left lg:w-1/2 mx-5 lg:mx-0 mt-5 lg:mt-0">
                         <img className='rounded-2xl' src={loginImage} alt="" />
                     </div>
-                    <div className="w-1/2">
+                    <div className="lg:w-1/2">
                         <div className="card-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
@@ -96,6 +103,7 @@ const Login = () => {
                                     G
                                 </button>
                             </div>
+                            {error && <p className='text-red-600 text-center font-bold'>{error}</p>}
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from '../../assets/images/logos/pngwing.com.png'
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -26,13 +26,41 @@ const NavigationBar = () => {
     }
 
     const navOptions = <>
-        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/'>Home</Link></li>
-        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/instructors'>Instructors</Link></li>
-        <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/classes'>Classes</Link></li>
+        <li ><NavLink
+            to="/"
+            className={({ isActive }) =>
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+            }
+        >
+            Home
+        </NavLink></li>
+        <li ><NavLink
+            to="/instructors"
+            className={({ isActive }) =>
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+            }
+        >
+            Instructors
+        </NavLink></li>
+        <li ><NavLink
+            to="/classes"
+            className={({ isActive }) =>
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+            }
+        >
+            Classes
+        </NavLink></li>
         {
             user ?
                 <>
-                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/dashboard'>Dashboard</Link></li>
+                    <li ><NavLink
+                        to="/dashboard"
+                        className={({ isActive }) =>
+                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                        }
+                    >
+                        Dashboard
+                    </NavLink></li>
                     <li>
                         <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                             <img className="rounded-full w-[30px] h-[30px]" src={user?.photoURL} alt="" />
@@ -41,7 +69,14 @@ const NavigationBar = () => {
                     <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><button onClick={handleLogout}>Logout</button></li>
                 </> :
                 <>
-                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><Link to='/login'>Login</Link></li>
+                    <li ><NavLink
+                        to="/login"
+                        className={({ isActive }) =>
+                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                        }
+                    >
+                        Login
+                    </NavLink></li>
                 </>
         }
     </>

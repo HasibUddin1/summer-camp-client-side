@@ -58,53 +58,59 @@ const SelectedClasses = () => {
     }
 
     return (
-        <div className="w-full">
-            <div className="w-1/2 mx-auto">
-                <div className="flex items-center justify-center"><h1 className="text-4xl text-center font-bold">Proceed to Payment:</h1>
-                    <Link to='/dashboard/paymentConfirm'>
-                        <button className="bg-slate-800 text-white px-12 py-2 hover:bg-slate-600 ease-in-out duration-200 rounded-xl gap-5">Pay</button>
-                    </Link>
-                </div>
-            </div>
-            <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th className="text-white font-bold text-xl">Image</th>
-                                <th className="text-white font-bold text-xl">Name</th>
-                                <th className="text-white font-bold text-xl">Email</th>
-                                <th className="text-white font-bold text-xl">Price</th>
-                                <th className="text-white font-bold text-xl">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                selectedClasses.map(selectedClass => <tr
-                                    key={selectedClass._id}
-                                >
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={selectedClass.image} alt="Avatar Tailwind CSS Component" />
+        <div>
+            {
+                selectedClasses.length === 0 ?
+                <h1 className="text-4xl font-bold">You do not have any selected classes</h1> :
+                <div className="w-full">
+                    <div className="w-1/2 mx-auto">
+                        <div className="flex items-center justify-center"><h1 className="text-4xl text-center font-bold">Proceed to Payment:</h1>
+                            <Link to='/dashboard/paymentConfirm'>
+                                <button className="bg-slate-800 text-white px-12 py-2 hover:bg-slate-600 ease-in-out duration-200 rounded-xl gap-5">Pay</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+                                        <th className="text-white font-bold text-xl">Image</th>
+                                        <th className="text-white font-bold text-xl">Name</th>
+                                        <th className="text-white font-bold text-xl">Email</th>
+                                        <th className="text-white font-bold text-xl">Price</th>
+                                        <th className="text-white font-bold text-xl">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        selectedClasses.map(selectedClass => <tr
+                                            key={selectedClass._id}
+                                        >
+                                            <td>
+                                                <div className="flex items-center space-x-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img src={selectedClass.image} alt="Avatar Tailwind CSS Component" />
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {selectedClass.name}
-                                    </td>
-                                    <td>{selectedClass.email}</td>
-                                    <td>${selectedClass.price}</td>
-                                    <td><button onClick={() => handleDelete(selectedClass._id)} className="btn">Delete</button></td>
-                                </tr>)
-                            }
-                        </tbody>
-                    </table>
+                                            </td>
+                                            <td>
+                                                {selectedClass.name}
+                                            </td>
+                                            <td>{selectedClass.email}</td>
+                                            <td>${selectedClass.price}</td>
+                                            <td><button onClick={() => handleDelete(selectedClass._id)} className="btn">Delete</button></td>
+                                        </tr>)
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     );
 };

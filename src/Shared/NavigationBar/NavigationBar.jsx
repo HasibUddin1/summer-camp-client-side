@@ -29,7 +29,7 @@ const NavigationBar = () => {
         <li ><NavLink
             to="/"
             className={({ isActive }) =>
-                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl px-4 py-2" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"
             }
         >
             Home
@@ -37,7 +37,7 @@ const NavigationBar = () => {
         <li ><NavLink
             to="/instructors"
             className={({ isActive }) =>
-                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl px-4 py-2" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"
             }
         >
             Instructors
@@ -45,7 +45,7 @@ const NavigationBar = () => {
         <li ><NavLink
             to="/classes"
             className={({ isActive }) =>
-                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                isActive ? "font-semibold text-xl bg-slate-400 rounded-xl px-4 py-2" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"
             }
         >
             Classes
@@ -56,7 +56,7 @@ const NavigationBar = () => {
                     <li ><NavLink
                         to="/dashboard"
                         className={({ isActive }) =>
-                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl px-4 py-2" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"
                         }
                     >
                         Dashboard
@@ -66,13 +66,13 @@ const NavigationBar = () => {
                             <img className="rounded-full w-[30px] h-[30px]" src={user?.photoURL} alt="" />
                         </div>
                     </li>
-                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"><button onClick={handleLogout}>Logout</button></li>
+                    <li className="font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"><button onClick={handleLogout}>Logout</button></li>
                 </> :
                 <>
                     <li ><NavLink
                         to="/login"
                         className={({ isActive }) =>
-                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl"
+                            isActive ? "font-semibold text-xl bg-slate-400 rounded-xl px-4 py-2" : "font-semibold text-xl hover:bg-slate-400 ease-in-out duration-200 rounded-xl px-4 py-2"
                         }
                     >
                         Login
@@ -95,7 +95,7 @@ const NavigationBar = () => {
                 <a className="flex items-center text-xl font-bold text-white"><img className="w-[80px] h-[80px]" src={logo} alt="" /> Language Club</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-white">
+                <ul className="flex gap-3 items-center text-white">
                     {navOptions}
                 </ul>
             </div>

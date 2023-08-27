@@ -4,16 +4,22 @@ const SingleInstructors = ({ instructor }) => {
     // console.log(instructor)
     const { name, image, className, students } = instructor
     return (
-        <div className="card lg:w-96 bg-slate-200 shadow-xl mb-5 lg:mb-0">
-            <div className="card-body">
-                <h2 className="card-title font-bold">{name}</h2>
-                <p className="font-semibold">Class Name: {className}</p>
-                <p className="font-semibold">Number of Students: {students}</p>
+
+        <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-200 ease-in-out duration-200">
+            <div className="h-full w-1/3">
+                <img className="object-cover w-full h-full rounded-t-lg md:rounded-none md:rounded-l-lg" src={image} alt="" />
+            </div>
+            <div className="flex flex-col justify-between p-4 leading-normal">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{name}</h5>
+                <p className="mb-3 font-normal text-gray-700">Class Name: {className}</p>
+                <p className="mb-3 font-normal text-gray-700">Number of Students: {students}</p>
                 <div className="badge badge-secondary font-bold">Popular</div>
             </div>
-            <figure><img className="w-full h-[300px]" src={image} alt="Shoes" /></figure>
         </div>
+
     );
 };
 
 export default SingleInstructors;
+
+{/* <div className="badge badge-secondary font-bold">Popular</div> */ }

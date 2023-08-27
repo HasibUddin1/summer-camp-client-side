@@ -31,7 +31,7 @@ const Instructors = () => {
                             <tr>
                                 <th className="text-white font-bold text-xl">Image</th>
                                 <th className="text-white font-bold text-xl">Name</th>
-                                <th className="text-white font-bold text-xl">Email</th>
+                                <th className="text-white font-bold text-xl">Support Email</th>
                             </tr>
                         </thead>
                         <tbody>

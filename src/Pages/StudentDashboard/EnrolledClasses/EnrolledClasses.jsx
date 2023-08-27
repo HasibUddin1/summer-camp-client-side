@@ -25,7 +25,7 @@ const EnrolledClasses = () => {
         <div className="w-full">
             {
                 classes.length === 0 ?
-                <h1 className="text-4xl font-bold">You do not have any enrolled classes</h1> :
+                <h1 className="text-4xl font-bold text-center">You do not have any enrolled classes</h1> :
                 <div className="w-full">
                     <h1 className="text-4xl text-center font-bold mt-10">Your Selected Classes</h1>
                     <div className="w-9/12 mx-auto bg-slate-800 rounded-xl mt-10 text-white">
